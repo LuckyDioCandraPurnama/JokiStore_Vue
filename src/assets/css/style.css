@@ -11,16 +11,16 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #f4f4f4;
 }
 
 a {
-  color: #009961;
+  color: #fff000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #00cc81;
+  color: #fff000;
   text-decoration: none;
 }
 
@@ -894,7 +894,7 @@ section {
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  color: #444444;
+  color: #f4f4f4;
   margin: 0 3px 10px 3px;
   transition: all ease-in-out 0.3s;
   background: #f4f4f4;
@@ -1242,11 +1242,11 @@ section {
 }
 
 .faq .accordion-list a.collapsed {
-  color: #343a40;
+  color: #fff;
 }
 
 .faq .accordion-list a.collapsed:hover {
-  color: #009961;
+  color: #ffff00;
 }
 
 .faq .accordion-list a.collapsed .icon-show {
@@ -1701,7 +1701,7 @@ section {
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  color: #444444;
+  color: #f4f4f4;
   margin: 0 3px 10px 3px;
   transition: all ease-in-out 0.3s;
   background: #f4f4f4;
@@ -1802,7 +1802,7 @@ section {
 
 .portfolio-details .content p {
   font-size: 15px;
-  color: #848484;
+  color: #f4f4f4;
 }
 
 /* .portfolio-details .accordion-list {
@@ -1820,7 +1820,7 @@ section {
 
 .portfolio-details .accordion-list li {
   padding: 20px;
-  background: #fefefe;
+  background: rgba(174,174,174,.261);
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
   border-radius: 4px;
 }
@@ -1854,11 +1854,11 @@ section {
 }
 
 .portfolio-details .accordion-list a.collapsed {
-  color: #343a40;
+  color: #fff;
 }
 
 .portfolio-details .accordion-list a.collapsed:hover {
-  color: #009961;
+  color: #fff000;
 }
 
 .portfolio-details .accordion-list a.collapsed .icon-show {
@@ -1933,9 +1933,9 @@ section {
   border-bottom-left-radius: 10px;
 }
 
-/* .list-group input[type="radio"] {
+.list-group input[type="radio"] {
   display: none;
-} */
+}
 
 .list-group input[type="radio"] + .list-group-item {
   text-align: center;
@@ -2011,7 +2011,7 @@ section {
   text-align: center;
 }
 .list-group input[type="radio"]:checked + .list-group-item {
-  color: #ef222243;
+  color: #ffff00;
   font-size: 12px;
   border: 2px solid #c9c9c993;
   box-shadow: 0 0 2.22222vw #ababab, inset 0 2.40741vw 8.05556vw #adadad43,
@@ -2203,4 +2203,9 @@ input,button,select,optgroup,textarea {
 
 .button-action-payment input[type=radio]:checked+.payment-item:before {
   color: inherit
+}
+.btn-ordernow {
+  color: #fff;
+  background-color: #4b4e51;
+  border-color: #4b4e51;
 }

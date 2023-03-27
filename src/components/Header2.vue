@@ -17,7 +17,9 @@
                 <a class="nav-link scrollto" href="order-list.html">Order</a>
               </li>
             </ul>
+            <!-- <button  @click="toggleNav"> -->
             <i class="bi bi-list mobile-nav-toggle"></i>
+            <!-- </button> -->
           </nav>
           <a href="/login" class="get-started-btn scrollto">Login</a>
         </div>

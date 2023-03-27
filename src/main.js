@@ -14,7 +14,9 @@ import RankStar from './components/ml/rank-star.vue'
 // import Header from './components/Header2.vue'
 // import Footer from './components/Footer2.vue'
 
-const app = createApp({});
+const app = createApp({
+});
+
 
 const routes = [
   { path: '/', component: Dashboard },
