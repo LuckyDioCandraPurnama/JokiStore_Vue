@@ -1933,9 +1933,9 @@ section {
   border-bottom-left-radius: 10px;
 }
 
-/* .list-group input[type="radio"] {
+.list-group input[type="radio"] {
   display: none;
-} */
+}
 
 .list-group input[type="radio"] + .list-group-item {
   text-align: center;

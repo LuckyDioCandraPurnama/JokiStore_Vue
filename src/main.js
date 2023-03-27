@@ -4,7 +4,7 @@ import App from './App.vue'
 // import router from './router'
 // import login from './login'
 // import VueAxios from 'vue-axios'
-// import axios from 'axios'
+import axios from 'axios'
 import './assets/css/style.css'
 import Dashboard from './components/Dashboard.vue'
 import Login from './components/Login.vue'
@@ -13,8 +13,6 @@ import RankPack from './components/ml/rank-pack.vue'
 import RankStar from './components/ml/rank-star.vue'
 // import Header from './components/Header2.vue'
 // import Footer from './components/Footer2.vue'
-
-const app = createApp({});
 
 const routes = [
   { path: '/', component: Dashboard },
@@ -34,4 +32,7 @@ const router = createRouter({
   routes
 })
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.config.globalProperties.axios = axios
+app.mount('#app')
