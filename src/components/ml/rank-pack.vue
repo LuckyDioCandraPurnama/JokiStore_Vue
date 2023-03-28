@@ -1,8 +1,7 @@
 <template>
   <Header></Header>
   <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <!-- style="background-color: #212529" -->
+  <section id="breadcrumbs" class="breadcrumbs" style="background-color: #212529">
     <div class="container">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,8 +12,7 @@
   </section>
   <!-- End Breadcrumbs -->
   <!-- ======= Portfolio Details Section ======= -->
-  <section id="portfolio-details" class="portfolio-details">
-    <!-- style="background-color: #2d3238" -->
+  <section id="portfolio-details" class="portfolio-details" style="background-color: #2d3238">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mt-2 mb-2">
@@ -54,105 +52,7 @@
         </div>
 
         <div class="col-lg-8 mt-2 mb-2">
-          <div class="row">
-            <div class="col">
-              <div class="portfolio-info card bg-dark shadow">
-                <h3>Lengkapi Informasi</h3>
-                <form
-                  method="post"
-                  role="form"
-                  class="php-email-form"
-                  style="background: transparent"
-                >
-                  <div class="row row-cols row-cols-md">
-                    <div class="col-lg-6">
-                      <div class="form-group mb-3">
-                        <input
-                          type="email"
-                          name="email"
-                          class="form-control"
-                          id="email"
-                          placeholder="Masukkan Email/No HP"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <div class="form-group mb-3">
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="password"
-                          id="password"
-                          placeholder="Masukkan Password"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <div class="form-group mb-3">
-                        <input
-                          type="text"
-                          name="req"
-                          class="form-control"
-                          id="req"
-                          placeholder="Request Hero"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <div class="form-group mb-3">
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="catatan"
-                          id="catatan"
-                          placeholder="Catatan Untuk Penjoki"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <div class="form-group mb-3">
-                        <input
-                          type="text"
-                          name="name"
-                          class="form-control"
-                          id="name"
-                          placeholder="User ID / Nick Name"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <div class="form-group mb-3">
-                        <select
-                          name="login"
-                          id="login"
-                          placeholder="Login Via"
-                          class="form-select"
-                        >
-                          <option value="">Login Via</option>
-                          <option value="moonton">
-                            Akun Moonton (Rekomendasi)
-                          </option>
-                          <option value="vk">Akun VK (Rekomendasi)</option>
-                          <option value="fb">facebook</option>
-                          <option value="tt">TikTok</option>
-                        </select>
-                      </div>
-                      <!-- <label for="Login Via"></label> -->
-                      <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Login Via" required> -->
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+          <Biodata />
 
           <div class="row mt-3">
             <div class="col">
@@ -192,47 +92,7 @@
 
           <Pembayaran ref="PB" />
 
-          <div class="row mt-3">
-            <div class="col">
-              <div class="portfolio-info card bg-dark shadow">
-                <h3>Nomer WhatsApp</h3>
-                <div class="form-group mb-3">
-                  <input
-                    type="text"
-                    name="wa"
-                    class="form-control"
-                    id="wa"
-                    placeholder="Nomer WhatsApp / No HP [628xxx]"
-                    required
-                  />
-                </div>
-                <button
-                  class="btn btn-ordernow w-100 btn-lg"
-                  style="width: 100% box-shadow: 0 .5rem 1rem rgba(255,255,255,.152)!important;"
-                  type="submit"
-                >
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <input
-                        type="text"
-                        name="wa"
-                        class="form-control"
-                        id="wa"
-                        placeholder="Nomer WhatsApp / No HP [628xxx]"
-                        required
-                      />
-                    </div>
-
-                    <div class="col-md-12">
-                      <button style="width: 100%" type="submit">
-                        <i class="bx bx-cart"></i> Order Now
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+          <WA />
         </div>
       </div>
     </div>
@@ -247,12 +107,16 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer2.vue";
 import Pembayaran from "@/components/general/pembayaran.vue";
+import WA from "@/components/general/noWA.vue";
+import Biodata from "@/components/general/biodata.vue";
 
 export default {
   components: {
     Header,
     Footer,
     Pembayaran,
+    WA,
+    Biodata,
   },
 
   data() {

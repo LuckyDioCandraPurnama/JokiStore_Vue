@@ -64,7 +64,6 @@
 export default {
   data() {
     return {
-      title: "aa",
       jenisPembayaran: [
         {
           jenis: "QRIS",
