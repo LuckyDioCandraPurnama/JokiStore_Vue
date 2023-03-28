@@ -18,10 +18,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mt-2 mb-2">
-          <div class="portfolio-details-slider">
+          <div class="card bg-dark shadow portfolio-details-slider">
             <img src="@/assets/img/portfolio/portfolio-4.jpg" alt="" />
             <div class="portfolio-info">
               <h3>Paket Joki Ranked</h3>
+              <p>Orderan Di Cek Jam 13.00 - 23.00 WIB&nbsp;</p>
               <p>Cara Order :&nbsp;</p>
               <ol>
                 <li>Lengkapi Data Joki Dengan Teliti!</li>
@@ -33,6 +34,21 @@
                   Orderan Joki akan segera di proses setelah pembayaran berhasil
                 </li>
               </ol>
+              <p>
+                <font color="#ffff00"
+                  >Estimasi Proses Jasa Joki Kita Usahakan Secepatnya</font
+                >
+              </p>
+              <p>
+                <font color="#ffff00">Minimal 12 Jam - Maximal 3x24 Jam</font>
+              </p>
+              <p>
+                <font color="#ffff00"
+                  >Catatan Penting ! :<br />1. Sebelum Order Mohon Baca
+                  Informasi (Banner)</font
+                >
+              </p>
+              <Modal></Modal>
             </div>
           </div>
         </div>
@@ -40,10 +56,9 @@
         <div class="col-lg-8 mt-2 mb-2">
           <div class="row">
             <div class="col">
-              <div class="portfolio-info">
+              <div class="portfolio-info card bg-dark shadow">
                 <h3>Lengkapi Informasi</h3>
                 <form
-                  action="forms/contact.php"
                   method="post"
                   role="form"
                   class="php-email-form"
@@ -141,7 +156,7 @@
 
           <div class="row mt-3">
             <div class="col">
-              <div class="portfolio-info">
+              <div class="portfolio-info card bg-dark shadow">
                 <h3>Pilih Paket Joki Ranked</h3>
                 <div class="row row-cols-2">
                   <div
@@ -160,7 +175,6 @@
                             <div class="row">
                               <div class="col name-prod">{{ paket.jenis }}</div>
                             </div>
-
                             <div class="row">
                               <div class="col nominal-price">
                                 Rp{{ paket.harga }}
@@ -180,15 +194,22 @@
 
           <div class="row mt-3">
             <div class="col">
-              <div class="portfolio-info">
+              <div class="portfolio-info card bg-dark shadow">
                 <h3>Nomer WhatsApp</h3>
-                <!-- <div class="col-lg-8 mt-5 mt-lg-0"> -->
-
-                <form
-                  action="forms/contact.php"
-                  method="post"
-                  role="form"
-                  class="php-email-form"
+                <div class="form-group mb-3">
+                  <input
+                    type="text"
+                    name="wa"
+                    class="form-control"
+                    id="wa"
+                    placeholder="Nomer WhatsApp / No HP [628xxx]"
+                    required
+                  />
+                </div>
+                <button
+                  class="btn btn-ordernow w-100 btn-lg"
+                  style="width: 100% box-shadow: 0 .5rem 1rem rgba(255,255,255,.152)!important;"
+                  type="submit"
                 >
                   <div class="row">
                     <div class="col-md-12 form-group">

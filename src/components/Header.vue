@@ -11,10 +11,10 @@
             <ul>
               <li><a class="nav-link scrollto " href="/">Home</a></li>
               <li>
-                <a class="nav-link scrollto active" href="/">Services</a>
+                <a class="nav-link scrollto active" href="">Services</a>
               </li>
               <li>
-                <a class="nav-link scrollto" href="order-list.html">Order</a>
+                <a class="nav-link scrollto" href="">Order</a>
               </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
