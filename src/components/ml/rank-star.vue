@@ -35,13 +35,12 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-8">
           <div class="row">
             <div class="col">
               <div class="portfolio-info">
                 <h3>Lengkapi Informasi</h3>
-                <!-- <div class="col-lg-8 mt-5 mt-lg-0"> -->
-
                 <form
                   action="forms/contact.php"
                   method="post"
@@ -59,6 +58,7 @@
                         required
                       />
                     </div>
+
                     <div class="col-md-6 form-group">
                       <input
                         type="text"
@@ -81,6 +81,7 @@
                         placeholder="Request Hero"
                       />
                     </div>
+
                     <div class="col-md-6 form-group">
                       <input
                         type="text"
@@ -103,6 +104,7 @@
                         required
                       />
                     </div>
+
                     <div class="col-md-6 form-group">
                       <!-- <label for="Login Via"></label> -->
                       <select
@@ -127,139 +129,44 @@
               </div>
             </div>
           </div>
+
           <div class="row mt-3">
             <div class="col">
               <div class="portfolio-info">
                 <h3>Pilih Joki Ranked Per (Star/Poin)</h3>
-                <div class="row">
-                  <div class="col-lg-4 mt-3">
-                    <div class="list-group shadow h-100">
-                      <input
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="nominal-24"
-                        value="24"
-                        data-type="diamond"
-                        data-product_id="8"
-                      />
-                      <label for="nominal-24" class="list-group-item h-100">
+                <div class="row row-cols-2">
+                  <div
+                    v-for="(paket, index) in paketStar"
+                    :key="paket"
+                    class="col-lg-4 mt-3"
+                  >
+                    <label class="list-group shadow h-100">
+                      <input type="radio" name="inlineRadioOptions" />
+                      <div
+                        @click="getPaketPrice(index, paket.harga)"
+                        class="list-group-item h-100"
+                      >
                         <div class="row">
                           <div class="col">
                             <div class="row">
-                              <div class="col name-prod">Master / Star</div>
+                              <div class="col name-prod">{{ paket.jenis }}</div>
                             </div>
+
                             <div class="row">
-                              <div class="col nominal-price">Rp 1.000</div>
-                            </div>
-                          </div>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 mt-3">
-                    <div class="list-group shadow h-100">
-                      <input
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="nominal-24"
-                        value="24"
-                        data-type="diamond"
-                        data-product_id="8"
-                      />
-                      <label for="nominal-24" class="list-group-item h-100">
-                        <div class="row">
-                          <div class="col">
-                            <div class="row">
-                              <div class="col name-prod">GM / Star</div>
-                            </div>
-                            <div class="row">
-                              <div class="col nominal-price">Rp 2.000</div>
-                            </div>
-                          </div>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 mt-3">
-                    <div class="list-group shadow h-100">
-                      <input
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="nominal-24"
-                        value="24"
-                        data-type="diamond"
-                        data-product_id="8"
-                      />
-                      <label for="nominal-24" class="list-group-item h-100">
-                        <div class="row">
-                          <div class="col">
-                            <div class="row">
-                              <div class="col name-prod">Epic / Star</div>
-                            </div>
-                            <div class="row">
-                              <div class="col nominal-price">Rp 3.000</div>
-                            </div>
-                          </div>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-4 mt-3">
-                    <div class="list-group shadow h-100">
-                      <input
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="nominal-24"
-                        value="24"
-                        data-type="diamond"
-                        data-product_id="8"
-                      />
-                      <label for="nominal-24" class="list-group-item h-100">
-                        <div class="row">
-                          <div class="col">
-                            <div class="row">
-                              <div class="col name-prod">Legend / Star</div>
-                            </div>
-                            <div class="row">
-                              <div class="col nominal-price">Rp 4.000</div>
-                            </div>
-                          </div>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 mt-3">
-                    <div class="list-group shadow h-100">
-                      <input
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="nominal-24"
-                        value="24"
-                        data-type="diamond"
-                        data-product_id="8"
-                      />
-                      <label for="nominal-24" class="list-group-item h-100">
-                        <div class="row">
-                          <div class="col">
-                            <div class="row">
-                              <div class="col name-prod">
-                                Mythic Romawi / Poin
+                              <div class="col nominal-price">
+                                Rp{{ paket.harga }}
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col nominal-price">Rp 1.000</div>
-                            </div>
                           </div>
                         </div>
-                      </label>
-                    </div>
+                      </div>
+                    </label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="row mt-3">
             <div class="col">
               <div class="portfolio-info">
@@ -277,8 +184,10 @@
                       name="qty"
                       class="form-control"
                       id="qty"
-                      placeholder="Masukkan Jumlah (Star/Poin)"
+                      v-model="jumlahStar"
+                      @input="changePaketPrice()"
                       required
+                      min="3"
                     />
                   </div>
                   <div class="col-md-12">
@@ -292,566 +201,9 @@
               </div>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col">
-              <div class="portfolio-info">
-                <div class="content">
-                  <h3>Pilih Metode Pembayaran</h3>
-                </div>
-                <div class="accordion-list">
-                  <ul>
-                    <li>
-                      <a
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordion-list-1"
-                        class="collapsed"
-                        >QRIS <i class="bx bx-chevron-down icon-show"></i
-                        ><i class="bx bx-chevron-up icon-close"></i
-                      ></a>
-                      <div
-                        id="accordion-list-1"
-                        class="collapse"
-                        data-bs-parent=".accordion-list"
-                      >
-                        <div class="row">
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">QRIS</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 80.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
 
-                    <li>
-                      <a
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordion-list-2"
-                        class="collapsed"
-                        >E-Wallet <i class="bx bx-chevron-down icon-show"></i
-                        ><i class="bx bx-chevron-up icon-close"></i
-                      ></a>
-                      <div
-                        id="accordion-list-2"
-                        class="collapse"
-                        data-bs-parent=".accordion-list"
-                      >
-                        <div class="row">
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">Dana</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 80.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">OVO</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 125.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">
-                                        Shopee Pay
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 165.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
+          <Pembayaran ref="PB" />
 
-                    <li>
-                      <a
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordion-list-3"
-                        class="collapsed"
-                        >Virtual Account
-                        <i class="bx bx-chevron-down icon-show"></i
-                        ><i class="bx bx-chevron-up icon-close"></i
-                      ></a>
-                      <div
-                        id="accordion-list-3"
-                        class="collapse"
-                        data-bs-parent=".accordion-list"
-                      >
-                        <div class="row">
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">Mandiri</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 80.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">BCA</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 125.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">BNI</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 165.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">
-                                        Bank Muamalat
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 80.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">Danamon</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 125.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">
-                                        CIMB Niaga
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 165.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">BSI</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 80.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">May Bank</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 125.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">BRI</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 165.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li>
-                      <a
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordion-list-4"
-                        class="collapsed"
-                        >Convenience Store
-                        <i class="bx bx-chevron-down icon-show"></i
-                        ><i class="bx bx-chevron-up icon-close"></i
-                      ></a>
-                      <div
-                        id="accordion-list-4"
-                        class="collapse"
-                        data-bs-parent=".accordion-list"
-                      >
-                        <div class="row">
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">Indomaret</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 80.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">Alfamaret</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 125.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 mt-3">
-                            <div class="list-group shadow h-100">
-                              <input
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="nominal-24"
-                                value="24"
-                                data-type="diamond"
-                                data-product_id="8"
-                              />
-                              <label
-                                for="nominal-24"
-                                class="list-group-item h-100"
-                              >
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">Alfamidi</div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        Rp 165.000
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="row mt-3">
             <div class="col">
               <div class="portfolio-info">
@@ -896,7 +248,53 @@
 <style scoped>
 @import "@/assets/css/style.css";
 </style>
-<script setup>
+<script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer2.vue";
+import Pembayaran from "@/components/general/pembayaran.vue";
+
+export default {
+  components: {
+    Header,
+    Footer,
+    Pembayaran,
+  },
+
+  data() {
+    return {
+      id: "",
+      price: "",
+      paketStar: [],
+      jumlahStar: "3",
+      jenisPembayaran: [],
+    };
+  },
+
+  methods: {
+    getPaketStar: function () {
+      this.axios.get("http://127.0.0.1:8000/api/star").then((result) => {
+        this.paketStar = result.data;
+      });
+    },
+
+    getPaketPrice: function (index, prices) {
+      this.id = index;
+      this.price = prices
+      this.changePaketPrice()
+    },
+
+    changePaketPrice:function() {
+      for (var i = 0; i < this.jenisPembayaran.length; i++) {
+        for (var j = 0; j < this.jenisPembayaran[i].tipe.length; j++) {
+          this.jenisPembayaran[i].tipe[j].price = this.price * this.jumlahStar;
+        }
+      }
+    }
+  },
+
+  mounted() {
+    this.jenisPembayaran = this.$refs.PB.jenisPembayaran;
+    this.getPaketStar();
+  },
+};
 </script>

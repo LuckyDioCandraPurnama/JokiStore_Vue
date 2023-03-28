@@ -176,68 +176,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
-            <div class="col">
-              <div class="portfolio-info">
-                <div class="content">
-                  <h3>Pilih Metode Pembayaran</h3>
-                </div>
-
-                <div class="accordion-list">
-                  <ul
-                    v-for="(pembayaran, index) in jenisPembayaran"
-                    :key="pembayaran"
-                  >
-                    <li>
-                      <a
-                        data-bs-toggle="collapse"
-                        :data-bs-target="'#accordion-list-' + index"
-                        class="collapsed"
-                      >
-                        {{ pembayaran.jenis }}
-                        <i class="bx bx-chevron-down icon-show"></i>
-                        <i class="bx bx-chevron-up icon-close"></i
-                      ></a>
-                      <div
-                        :id="'accordion-list-' + index"
-                        class="collapse"
-                        data-bs-parent=".accordion-list"
-                      >
-                        <div class="row">
-                          <div
-                            v-for="pb in pembayaran.tipe"
-                            :key="pb"
-                            class="col-lg-4 mt-3"
-                          >
-                            <label class="list-group shadow h-100">
-                              <input type="radio" name="inlineRadioOptions" />
-                              <div class="list-group-item h-100">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col name-prod">
-                                        {{ pb.name }}
-                                      </div>
-                                    </div>
-
-                                    <div class="row">
-                                      <div class="col nominal-price">
-                                        {{ pb.price }}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Pembayaran ref="PB" />
 
           <div class="row mt-3">
             <div class="col">
@@ -262,7 +201,7 @@
                         required
                       />
                     </div>
-                    
+
                     <div class="col-md-12">
                       <button style="width: 100%" type="submit">
                         <i class="bx bx-cart"></i> Order Now
@@ -286,51 +225,20 @@
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer2.vue";
+import Pembayaran from "@/components/general/pembayaran.vue";
 
 export default {
-  components: { Header, Footer },
+  components: {
+    Header,
+    Footer,
+    Pembayaran,
+  },
 
   data() {
     return {
-      idPaket: "",
-      pricePaket: "",
+      id: "",
       paketJoki: [],
-      jenisPembayaran: [
-        {
-          jenis: "QRIS",
-          tipe: [{ name: "QRIS", price: "" }],
-        },
-        {
-          jenis: "E-Wallet",
-          tipe: [
-            { name: "Dana", price: "" },
-            { name: "Ovo", price: "" },
-            { name: "Shoope Pay", price: "" },
-          ],
-        },
-        {
-          jenis: "Virtual Account",
-          tipe: [
-            { name: "Mandiri", price: "" },
-            { name: "BCA", price: "" },
-            { name: "BNI", price: "" },
-            { name: "Bank Muamalat", price: "" },
-            { name: "Danamon", price: "" },
-            { name: "CIMB Niaga", price: "" },
-            { name: "BSI", price: "" },
-            { name: "May Bank", price: "" },
-            { name: "BRI", price: "" },
-          ],
-        },
-        {
-          jenis: "Convenience Store",
-          tipe: [
-            { name: "Indomaret", price: "" },
-            { name: "Alfamaret", price: "" },
-            { name: "Alfamidi", price: "" },
-          ],
-        },
-      ],
+      jenisPembayaran: [],
     };
   },
 
@@ -342,16 +250,17 @@ export default {
     },
 
     getPaketPrice: function (index, prices) {
-      this.idPaket = index;
+      this.id = index;
       for (var i = 0; i < this.jenisPembayaran.length; i++) {
         for (var j = 0; j < this.jenisPembayaran[i].tipe.length; j++) {
-          this.jenisPembayaran[i].tipe[j].price = "Rp" + prices;
+          this.jenisPembayaran[i].tipe[j].price = prices;
         }
       }
     },
   },
 
   mounted() {
+    this.jenisPembayaran = this.$refs.PB.jenisPembayaran;
     this.getPaketJoki();
   },
 };
