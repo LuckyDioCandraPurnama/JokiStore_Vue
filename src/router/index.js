@@ -1,31 +1,51 @@
-// 1. Define route components.
-// These can be imported from other files
-const Home = { template: '<div>Home</div>' }
-const About = { template: '<div>About</div>' }
+import { createRouter, createWebHistory } from "vue-router";
 
-// 2. Define some routes
-// Each route should map to a component.
-// We'll talk about nested routes later.
-const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
-]
-
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
-const router = VueRouter.createRouter({
-  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: VueRouter.createWebHashHistory(),
-  routes, // short for `routes: routes`
+const router = createRouter({
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
+  history: createWebHistory(),
+  routes: [
+    // authorization
+    {
+      path: '/login',
+      name: 'Login',
+      component: () => import('../components/Login.vue')
+    },
+    // landing page
+    {
+      path: '/',
+      name: 'Landing Page',
+      component: () => import('../components/Dashboard.vue')
+    },
+    // serviecs
+    {
+      path: '/rank-pack',
+      name: 'ML Pack',
+      component: () => import('../components/ml/rank-pack.vue')
+    },
+    {
+      path: '/rank-star',
+      name: 'ML Star',
+      component: () => import('../components/ml/rank-pack.vue')
+    },
+    {
+      path: '/classic',
+      name: 'ML Classic',
+      component: () => import('../components/ml/clas.vue')
+    }
+  ]
 })
 
-// 5. Create and mount the root instance.
-const app = Vue.createApp({})
-// Make sure to _use_ the router instance to make the
-// whole app router-aware.
-app.use(router)
+router.beforeEach(async(to, from, next) => {
+  let title = "UrLuck | "
+  if (to.name !== 'Landing Page') {
+    title += to.name
+  } else {
+    title = "UrLuck Store"
+  }
+  document.title = title
+  next()
+})
 
-app.mount('#app')
-
-// Now the app has started!
+export default router

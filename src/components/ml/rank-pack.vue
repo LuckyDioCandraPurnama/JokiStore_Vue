@@ -1,15 +1,7 @@
 <template>
   <Header></Header>
   <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs" style="background-color: #212529">
-    <div class="container">
-      <ol>
-        <li><a href="/">Home</a></li>
-        <li style="color: white">Service Details</li>
-      </ol>
-      <h2 style="color: white">Paket Joki Ranked</h2>
-    </div>
-  </section>
+  <LinkNavigator />
   <!-- End Breadcrumbs -->
   <!-- ======= Portfolio Details Section ======= -->
   <section id="portfolio-details" class="portfolio-details" style="background-color: #2d3238">
@@ -76,6 +68,7 @@ import Pembayaran from "@/components/general/pembayaran.vue";
 import WA from "@/components/general/noWA.vue";
 import Biodata from "@/components/general/biodata.vue";
 import SidePanel from '@/components/general/sidePanel.vue';
+import LinkNavigator from '@/components/general/linkNavigator.vue';
 
 export default {
   components: {
@@ -85,6 +78,7 @@ export default {
     WA,
     Biodata,
     SidePanel,
+    LinkNavigator,
   },
 
   data() {
