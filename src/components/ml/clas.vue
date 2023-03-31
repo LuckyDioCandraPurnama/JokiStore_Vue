@@ -17,21 +17,27 @@
               <div class="card bg-dark shadow portfolio-info">
                 <h3>Pilih Joki Classic</h3>
                 <div class="row">
-                  <div class="col-lg-4 mt-3">
+                  <div
+                    v-for="(paket, index) in paketClassic"
+                    :key="paket"
+                    class="col-lg-4 mt-3"
+                  >
                     <label class="list-group shadow h-100">
-                      <input
-                        type="radio"
-                        name="inlineRadioOptions"
-                      />
-                      <div class="list-group-item h-100">
+                      <input type="radio" name="inlineRadioOptions" />
+                      <div
+                        @click="getPaketPrice(index, paket.harga)"
+                        class="list-group-item h-100"
+                      >
                         <div class="row">
                           <div class="col">
                             <div class="row">
-                              <div class="col name-prod">Classic / Win</div>
+                              <div class="col name-prod">{{ paket.jenis }}</div>
                             </div>
-                            
+
                             <div class="row">
-                              <div class="col nominal-price">Rp 3.000</div>
+                              <div class="col nominal-price">
+                                Rp{{ paket.harga }}
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -60,7 +66,10 @@
                       class="form-control"
                       id="win"
                       placeholder="Masukkan Jumlah Win"
-                      required min="5"
+                      v-model="jumlahClassic"
+                      @input="changePaketPrice()"
+                      required
+                      min="5"
                     />
                   </div>
 
@@ -111,12 +120,40 @@ export default {
 
   data() {
     return {
+      id: "",
+      price: "",
+      paketClassic: [],
+      jumlahClassic: "5",
       jenisPembayaran: []
+    }
+  },
+
+  methods: {
+    getClassic:function() {
+      this.axios.get("http://127.0.0.1:8000/api/clas").then((result) => {
+        this.paketClassic = result.data
+        console.log(result.data);
+      })
+    },
+
+    getPaketPrice: function (index, prices) {
+      this.id = index;
+      this.price = prices
+      this.changePaketPrice()
+    },
+
+    changePaketPrice:function() {
+      for (var i = 0; i < this.jenisPembayaran.length; i++) {
+        for (var j = 0; j < this.jenisPembayaran[i].tipe.length; j++) {
+          this.jenisPembayaran[i].tipe[j].price = this.price * this.jumlahClassic;
+        }
+      }
     }
   },
 
   mounted() {
     this.jenisPembayaran = this.$refs.PB.jenisPembayaran
+    this.getClassic()
   }
 }
 </script>
