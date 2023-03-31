@@ -6,35 +6,14 @@ const router = createRouter({
   },
   history: createWebHistory(),
   routes: [
-    // authorization
-    {
-      path: '/login',
-      name: 'Login',
-      component: () => import('@/components/Login.vue')
-    },
     // landing page
     {
       path: '/',
       name: 'Landing Page',
-      component: () => import('@/components/Dashboard.vue')
+      component: () => import('../components/landingPage/LandingPage.vue')
     },
-    // serviecs
-    {
-      path: '/rank-pack',
-      name: 'ML Pack',
-      component: () => import('@/components/ml/rank-pack.vue')
-    },
-    {
-      path: '/rank-star',
-      name: 'ML Star',
-      component: () => import('@/components/ml/rank-star.vue')
-    },
-    {
-      path: '/classic',
-      name: 'ML Classic',
-      component: () => import('@/components/ml/clas.vue')
-    }
-  ]
+  ],
+  base: '/'
 })
 
 router.beforeEach(async(to, from, next) => {
