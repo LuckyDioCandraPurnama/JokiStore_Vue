@@ -1,9 +1,18 @@
 <template>
   <div class="col-lg-4 mt-2 mb-2">
     <div class="card bg-dark shadow portfolio-details-slider">
-      <img v-if="type === 'packML'" src="@/assets/img/portfolio/portfolio-4.jpg" />
-      <img v-else-if="type === 'rankML'" src="@/assets/img/portfolio/portfolio-7.jpg" />
-      <img v-else-if="type === 'classicML'" src="@/assets/img/portfolio/portfolio-8.jpg" />
+      <img
+        v-if="type === 'packML'"
+        src="@/assets/img/portfolio/portfolio-4.jpg"
+      />
+      <img
+        v-else-if="type === 'starML'"
+        src="@/assets/img/portfolio/portfolio-7.jpg"
+      />
+      <img
+        v-else-if="type === 'classicML'"
+        src="@/assets/img/portfolio/portfolio-8.jpg"
+      />
       <div class="portfolio-info">
         <h3>Paket Joki Ranked</h3>
         <p>Orderan Di Cek Jam 13.00 - 23.00 WIB&nbsp;</p>
@@ -39,10 +48,10 @@
 </template>
 
 <script>
-import Modal from "@/components/Modal2.vue"
+import Modal from "@/components/Modal2.vue";
 
 export default {
-    props: ["type"],
-    components: { Modal }
-}
+  props: ["type"],
+  components: { Modal },
+};
 </script>

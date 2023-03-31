@@ -81,7 +81,7 @@
                   placeholder="Login Via"
                   class="form-select"
                 >
-                  <option value="">Login Via</option>
+                  <option value="" selected hidden disabled>Login Via</option>
                   <option value="moonton">Akun Moonton (Rekomendasi)</option>
                   <option value="vk">Akun VK (Rekomendasi)</option>
                   <option value="fb">facebook</option>

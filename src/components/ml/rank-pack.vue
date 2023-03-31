@@ -1,8 +1,8 @@
 <template>
   <Header></Header>
-  <!-- ======= Breadcrumbs ======= -->
+
   <LinkNavigator />
-  <!-- End Breadcrumbs -->
+  
   <!-- ======= Portfolio Details Section ======= -->
   <section id="portfolio-details" class="portfolio-details" style="background-color: #2d3238">
     <div class="container">

@@ -10,29 +10,29 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Login',
-      component: () => import('../components/Login.vue')
+      component: () => import('@/components/Login.vue')
     },
     // landing page
     {
       path: '/',
       name: 'Landing Page',
-      component: () => import('../components/Dashboard.vue')
+      component: () => import('@/components/Dashboard.vue')
     },
     // serviecs
     {
       path: '/rank-pack',
       name: 'ML Pack',
-      component: () => import('../components/ml/rank-pack.vue')
+      component: () => import('@/components/ml/rank-pack.vue')
     },
     {
       path: '/rank-star',
       name: 'ML Star',
-      component: () => import('../components/ml/rank-pack.vue')
+      component: () => import('@/components/ml/rank-star.vue')
     },
     {
       path: '/classic',
       name: 'ML Classic',
-      component: () => import('../components/ml/clas.vue')
+      component: () => import('@/components/ml/clas.vue')
     }
   ]
 })

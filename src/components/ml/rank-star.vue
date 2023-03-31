@@ -1,22 +1,13 @@
 <template>
   <Header></Header>
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs" style="background-color: #212529" >
-    <div class="container">
-      <ol>
-        <li style="color: white"><a href="/">Home</a></li>
-        <li style="color: white">Service Details</li>
-      </ol>
-      <h2>Joki Ranked Regular</h2>
-    </div>
-  </section>
-  <!-- End Breadcrumbs -->
+
+  <LinkNavigator />
 
   <!-- ======= Portfolio Details Section ======= -->
   <section id="portfolio-details" class="portfolio-details" style="background-color: #2d3238">
     <div class="container">
       <div class="row">
-        <SidePanel type="rankML" />
+        <SidePanel type="starML" />
 
         <div class="col-lg-8">
           <Biodata />
@@ -112,6 +103,7 @@ import Pembayaran from "@/components/general/pembayaran.vue";
 import WA from "@/components/general/noWA.vue";
 import Biodata from "@/components/general/biodata.vue";
 import SidePanel from "@/components/general/sidePanel.vue";
+import LinkNavigator from '@/components/general/linkNavigator.vue';
 
 export default {
   components: {
@@ -120,7 +112,8 @@ export default {
     Pembayaran,
     WA,
     Biodata,
-    SidePanel
+    SidePanel,
+    LinkNavigator
   },
 
   data() {
