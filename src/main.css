@@ -10,6 +10,73 @@
 }
 
 @layer components {
+    /* Navbar */
+    #navbar {
+        @apply transition duration-[0.5s]
+    }
+
+    .navbar {
+        @apply fixed z-50 w-full text-white py-5 px-20 
+    }
+
+    .navbar.onscroll {
+        @apply bg-[#212529]/80
+    }
+
+    .navbar .container {
+        @apply flex flex-row justify-between
+    }
+
+    .navbar .container h1 {
+        @apply text-3xl font-semibold
+    }
+
+    .navbar .container ul {
+        @apply flex items-center gap-10
+    }
+
+    .navbar .container ul li {
+        @apply text-base relative
+    }
+
+    .navbar .container ul li span {
+        @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-[#009961] transition-all
+    }
+
+    /* Footer */
+    footer {
+        @apply bg-[#0f0f0f] text-white py-10 text-center
+    }
+
+    footer h1 {
+        @apply text-4xl font-bold mb-4
+    }
+
+    footer p {
+        @apply text-sm
+    }
+
+    footer .tagline {
+        @apply italic
+    }
+
+    footer .medsos {
+        @apply flex flex-row gap-4 justify-center items-center my-10
+    }
+
+    footer .medsos .medsos-item {
+        @apply bg-[#009961] py-2 flex justify-center items-center rounded-full h-9 w-9
+    }
+
+    /* Scroll Button */
+    #scroll-btn {
+        @apply transition duration-[0.5s]
+    }
+
+    .scroll-btn {
+        @apply bottom-4 right-4 p-2 w-10 h-10 rounded-full bg-[#009961] fixed flex justify-center items-center
+    }
+
     /* Landing Page */
     .home {
         @apply bg-[url(./assets/img/hero-bg.jpg)] bg-cover bg-top relative w-full h-screen flex justify-center items-center text-white py-[80px] before:bg-black/60 before:absolute before:inset-0 before:content-[""] overflow-hidden
@@ -32,7 +99,11 @@
     }
 
     .services h1 {
-        @apply font-medium text-3xl pb-[10px] after:content-[""] relative after:absolute after:w-[50px] after:h-[3px] after:block after:bg-[#009961] after:bottom-0 after:left-0
+        @apply font-medium text-3xl pb-[10px] relative
+    }
+
+    .services h1 span  {
+        @apply absolute w-[50px] h-[3px] block bg-[#009961] bottom-0 left-0
     }
 
     .services .catalog {

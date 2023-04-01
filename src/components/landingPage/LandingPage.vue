@@ -1,6 +1,6 @@
 <template>
-    <Home />
-    <Services />
+    <Home id="home" />
+    <Services id="services" />
 </template>
 
 <script>

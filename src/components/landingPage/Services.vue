@@ -1,7 +1,10 @@
 <template>
     <div class="services">
         <div class="container">
-            <h1>Services</h1>
+            <h1>
+                Services
+                <span></span>
+            </h1>
             <div class="catalog">
                 <div
                     v-for="service in services"

@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import './main.css'
 import router from './router/index'
 import axios from 'axios'
+import './scroll/index'
+import 'boxicons'
 import App from './App.vue'
 
 const app = createApp(App)
