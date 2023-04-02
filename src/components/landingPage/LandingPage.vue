@@ -1,5 +1,5 @@
 <template>
-    <Home id="home" />
+    <Home />
     <Services id="services" />
 </template>
 

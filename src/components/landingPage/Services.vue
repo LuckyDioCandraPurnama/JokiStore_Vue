@@ -12,7 +12,7 @@
                     class="menu group"
                 >
                     <img :src="service.img">
-                    <router-link to="/" class="flex lg:hidden group-hover:flex">
+                    <router-link :to="service.href" class="flex lg:hidden group-hover:flex">
                         <span>{{ service.title }}</span>
                         <span>{{ service.subtitle }}</span>
                     </router-link>
@@ -30,22 +30,26 @@ export default {
                 {
                     img: "../src/assets/img/services/ml/ml-1.jpg",
                     title: "Paket Joki Ranked",
-                    subtitle: "Jasa Joki (Up Rank)"
+                    subtitle: "Jasa Joki (Up Rank)",
+                    href: "/ml-ranked"
                 },
                 {
                     img: "../src/assets/img/services/ml/ml-2.jpg",
                     title: "Joki Ranked per Star",
-                    subtitle: "Jasa Joki (Up Rank)"
+                    subtitle: "Jasa Joki (Up Rank)",
+                    href: "/"
                 },
                 {
                     img: "../src/assets/img/services/ml/ml-3.jpg",
                     title: "Joki Classic",
-                    subtitle: "Jasa Joki (Up Winrate)"
+                    subtitle: "Jasa Joki (Up Winrate)",
+                    href: "/"
                 },
                 {
                     img: "../src/assets/img/services/pubg/pubg-1.png",
                     title: "Paket Joki Tier",
-                    subtitle: "Jasa Joki (Up Tier)"
+                    subtitle: "Jasa Joki (Up Tier)",
+                    href: "/"
                 },
             ]
         }

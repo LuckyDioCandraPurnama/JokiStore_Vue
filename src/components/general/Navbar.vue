@@ -6,7 +6,7 @@
             </h1>
             <ul>
                 <li class="group">
-                    <router-link to="#home">Home</router-link>
+                    <router-link to="/">Home</router-link>
                     <span class="group-hover:w-full"></span>
                 </li>
                 <li class="group">

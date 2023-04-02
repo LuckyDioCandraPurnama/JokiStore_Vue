@@ -16,18 +16,24 @@ const router = createRouter({
   },
   history: createWebHistory(),
   routes: [
-    // landing page
+    // Landing page
     {
       path: '/',
       name: 'Landing Page',
       component: () => import('../components/landingPage/LandingPage.vue')
+    },
+    // Paket ML
+    {
+      path: '/ml-ranked',
+      name: 'ML Ranked',
+      component: () => import('../components/paketML/Ranked.vue')
     },
   ],
   base: '/'
 })
 
 router.beforeEach(async(to, from, next) => {
-  let title = "UrLuck | "
+  let title = "UrLuck Store | "
   if (to.name !== 'Landing Page') {
     title += to.name
   } else {
