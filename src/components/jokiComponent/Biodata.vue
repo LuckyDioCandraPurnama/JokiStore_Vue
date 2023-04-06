@@ -62,6 +62,9 @@
 </template>
 
 <script>
+import { mapActions, mapWritableState } from "pinia"
+import { useJokiStore } from '../../store/index'
+
 export default {
     data() {
         return {
@@ -78,6 +81,27 @@ export default {
                 'TikTok'
             ]
         }
+    },
+
+    methods: {
+        ...mapActions(useJokiStore, ["addBiodata"]),
+
+        addData:function() {
+            var dataBiodata = {
+                email:this.email,
+                password:this.password,
+                hero:this.hero,
+                note:this.note,
+                userID:this.userID,
+                akun:this.akun,
+            }
+
+            this.addBiodata(dataBiodata)
+        }
+    },
+
+    created() {
+        setInterval(() => this.addData(), 1000)
     }
 }
 </script>

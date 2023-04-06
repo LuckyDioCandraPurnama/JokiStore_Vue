@@ -6,16 +6,40 @@
             <div
                 v-for="(pembayaran, index) in jenisPembayaran"
                 :key="pembayaran"
-                @click="showList(index)"
                 class="jenis-pembayaran"
             >
-                <div class="pb-title">
+                <div
+                    @click="showList(index)"
+                    class="pb-title"
+                >
                     {{ pembayaran.jenis }}
-                    <box-icon name='chevron-down' color='#fff' :id="'pt' + index"></box-icon>
+                    <i class='bx bx-chevron-down bx-sm' style='color:#fff' :id="'pt' + index"></i>
                 </div>
                 
-                <div :id="'pb' + index" class="hidden pb-list">
-                    hah
+                <div
+                    :id="'pb' + index"
+                    class="hidden pb-tipe"
+                >
+                    <div
+                        v-for="tipe in pembayaran.tipe"
+                        :key="tipe"
+                        class="pb-list"
+                    >
+                        <label
+                            class="pb-radio"
+                            @click="getPembayaran(tipe.name)"
+                        >
+                            <input type="radio" name="pembayaran">
+                            <div class="pb-radio-item">
+                                <div class="flex flex-row">
+                                    <div class="pb-item-name">
+                                        <h1>{{ tipe.name }}</h1>
+                                        <span>Rp{{ tipe.price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -23,6 +47,9 @@
 </template>
 
 <script>
+import { mapActions, mapWritableState } from "pinia"
+import { useJokiStore } from '../../store/index'
+
 export default {
     data() {
         return {
@@ -56,16 +83,19 @@ export default {
                 {
                     jenis: "Convenience Store",
                     tipe: [
-                        { name: "Indomaret", price: "" },
-                        { name: "Alfamaret", price: "" },
-                        { name: "Alfamidi", price: "" },
+                        { name: "Indomaret", price: "0" },
+                        { name: "Alfamaret", price: "0" },
+                        { name: "Alfamidi", price: "0" },
                     ],
                 },
             ],
+            pilihanPembayaran: ''
         };
     },
 
     methods: {
+        ...mapActions(useJokiStore, ["addPembayaran"]),
+
         showList:function(id) {
             var el = document.getElementById("pb" + id)
             var e = document.getElementById("pt" + id)
@@ -77,14 +107,29 @@ export default {
                 } else {
                     if (el.classList.contains("hidden")) {
                         el.classList.remove("hidden");
+                        el.classList.add("grid");
                         e.classList.add("rotate-180");
                     } else {
                         el.classList.add("hidden");
+                        el.classList.remove("grid");
                         e.classList.remove("rotate-180");
                     }
                 }
             })
+        },
+
+        getPembayaran:function(name) {
+            this.pilihanPembayaran = name
+            console.log(name);
+        },
+
+        pilihPembayaran:function() {
+            this.addPembayaran(this.pilihanPembayaran)
         }
+    },
+
+    created() {
+        setInterval(() => this.pilihPembayaran(), 1000)
     }
 };
 </script>

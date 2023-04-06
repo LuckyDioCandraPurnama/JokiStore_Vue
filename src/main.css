@@ -74,7 +74,7 @@
     }
 
     .scroll-btn {
-        @apply bottom-4 right-4 p-2 w-10 h-10 rounded-full bg-[#009961] fixed flex justify-center items-center
+        @apply bottom-4 right-4 p-2 w-10 h-10 rounded-full bg-[#009961] fixed flex justify-center items-center cursor-pointer
     }
 
     /* Home */
@@ -156,6 +156,11 @@
         @apply text-2xl font-semibold
     }
 
+    .form-input,
+    .form-select {
+        @apply rounded text-black
+    }
+
     /* Side Panel */
     .side-panel ol {
         @apply list-decimal pl-8
@@ -167,12 +172,7 @@
 
     /* Biodata */
     .biodata .form {
-        @apply grid grid-cols-1 md:grid-cols-2 gap-4 text-black
-    }
-
-    .biodata .form .form-input,
-    .biodata .form .form-select {
-        @apply rounded
+        @apply grid grid-cols-1 md:grid-cols-2 gap-4
     }
 
     /* Pembayaran */
@@ -181,11 +181,45 @@
     }
 
     .pembayaran .form .jenis-pembayaran {
-        @apply bg-[#AEAEAE]/20 px-4 py-4 rounded cursor-pointer
+        @apply bg-[#AEAEAE]/20 px-4 py-4 rounded
     }
 
     .jenis-pembayaran .pb-title {
-        @apply flex flex-row justify-between
+        @apply flex flex-row justify-between cursor-pointer
+    }
+
+    .jenis-pembayaran .pb-tipe {
+        @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4
+    }
+
+    .jenis-pembayaran .pb-list .pb-radio {
+        @apply h-full shadow block cursor-pointer
+    }
+
+    .pb-radio input[type="radio"] {
+        @apply hidden
+    }
+
+    .pb-list .pb-radio-item {
+        @apply relative bg-[#282c30] hover:bg-[#adadad43] text-white px-4 py-2 border-2 border-[#282c30] hover:border-[#adadad43] text-xs rounded-lg shadow-md
+    }
+
+    .pb-radio input[type="radio"]:checked + .pb-radio-item::after {
+        @apply absolute top-0 right-0 w-7 h-7 rounded-tr-lg content-[''] text-center bg-[url(./assets/img/verified.png)] bg-top bg-cover
+    }
+
+    .pb-item-name {
+        @apply flex flex-col
+    }
+
+    .pb-item-name h1,
+    .pb-item-name span {
+        @apply text-xs font-normal
+    }
+
+    /* No WA */
+    .wa .order {
+        @apply bg-[#AEAEAE]/20 rounded text-center py-2 items-center flex flex-row justify-center gap-2 w-full
     }
 
     /* Paket ML Ranked */
